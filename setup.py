@@ -19,6 +19,7 @@ Ming MongoDB ODM plugin for Spynach web framework
     license='GPL',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
+    data_files=[('', ['README.rst'])],
     zip_safe=False,
     install_requires=[
         'spynach',
