@@ -1,6 +1,7 @@
 from ming.odm import ThreadLocalODMSession, Mapper
 import os
 from ming import create_datastore, Session
+from ming.odm.middleware import MingMiddleware
 
 mainsession = Session()
 DBSession = ThreadLocalODMSession(mainsession)
@@ -19,5 +20,7 @@ class MingPlug(object):
 
         for mapper in Mapper.all_mappers():
             mainsession.ensure_indexes(mapper.collection)
+
+        app = MingMiddleware(app)
 
         return app
